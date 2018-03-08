@@ -1,9 +1,10 @@
 FROM ubuntu:14.04
 MAINTAINER Medici.Yan <Medici.Yan@Gmail.com>
 
-RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
-ENV TZ=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+#change mirror to germany
+RUN sed -i 's/archive.ubuntu.com/mirror.23media.de/g' /etc/apt/sources.list
+#uncomment all repositories (including source code)
+RUN sed -i 's/#\s*deb/deb/g' /etc/apt/sources.list
 
 # Update sources
 RUN apt-get update -y
