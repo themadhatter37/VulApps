@@ -1,4 +1,4 @@
-FROM medicean/vulapps:base_lamp
+FROM madhatter37/vulnerable_apps:base_lamp_1.0.0
 
 COPY src/ImageMagick-6.7.9-10.tar.gz /tmp/ImageMagick-6.7.9-10.tar.gz
 COPY src/imagick-3.3.0.tar.gz /tmp/imagick-3.3.0.tar.gz
@@ -12,11 +12,13 @@ RUN set -x \
     && tar -zxf /tmp/imagick-3.3.0.tar.gz -C /var/www/ \
     && tar -zxf /tmp/re2c-0.13.7.5.tar.gz -C /var/www/
 
-COPY src/phpinfo.php /var/www/html/phpinfo.php
-COPY src/testimag.php /var/www/html/testimag.php
-COPY src/poc.php /var/www/html/poc.php
+RUN mkdir /var/www/html/file_upload
+RUN mkdir /var/www/html/file_upload/form
+RUN mkdir /var/www/html/uploads
 COPY src/index.php /var/www/html/index.php
-COPY src/poc.png /poc.png
+COPY src/poc.php /var/www/html/file_upload/poc.php
+COPY src/upload.php /var/www/html/file_upload/form/upload.php
+COPY src/default.png /var/www/html/uploads/default.png
 
 RUN set -x \
     && chown -R www-data:www-data /var/www/html/ \
