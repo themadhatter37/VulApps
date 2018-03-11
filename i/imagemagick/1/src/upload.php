@@ -32,4 +32,4 @@ if(isset($_POST['submit'])) {
         }
 }
 ?>
-<a href="poc.php">Return to main</a>
+<a href="../poc.php">Return to main</a>
