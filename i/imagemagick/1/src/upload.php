@@ -1,5 +1,5 @@
 <?php
-$target_dir = $_SERVER['DOCUMENT_ROOT']."/uploads/";
+$target_dir = "/uploads/";
 $target_file = $target_dir . basename($_FILES['upfile']['name']);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo(basename($_FILES['upfile']['name']),PATHINFO_EXTENSION));
@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
                 $image = new Imagick($_FILES['upfile']['tmp_name']);
                 $image->thumbnailImage(100,100);
                 if ($image->writeImage($target_file)) {
-                        setcookie('image_path',$target_file);
+                        setcookie('image_path',$value=$target_file, $path="/");
                         echo "The file ". basename($_FILES['upfile']['name']). " has been uploaded to " . $target_file."<br>";
                 } else {
                         echo "Sorry, there was an error uploading your file."."<br>";
