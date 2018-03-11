@@ -1,5 +1,5 @@
 <?php
-$cookie_name = 'image_path'
+$cookie_name = 'image_path';
 $target_dir = "/uploads/";
 $target_file = $target_dir . basename($_FILES['upfile']['name']);
 $uploadOk = 1;
