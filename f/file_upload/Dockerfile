@@ -1,4 +1,4 @@
-FROM madhatter37/vulnerable_apps:lamp
+FROM madhatter37/vulapps:lamp
 
 RUN rm -rf /var/www/html/*
 RUN mkdir /var/www/html/file_upload

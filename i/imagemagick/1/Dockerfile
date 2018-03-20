@@ -1,4 +1,4 @@
-FROM madhatter37/vulnerable_apps:lamp
+FROM madhatter37/vulapps:lamp
 
 COPY src/ImageMagick-6.7.9-10.tar.gz /tmp/ImageMagick-6.7.9-10.tar.gz
 COPY src/imagick-3.3.0.tar.gz /tmp/imagick-3.3.0.tar.gz
